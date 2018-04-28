@@ -10,8 +10,8 @@ package Candies;
 public abstract class Candy {
     /**
      * Атрибуты метода:
-     * Целое число weight - вес продукта в граммах
-     * Целое число price - цена продукта в сиклях
+     * weight - вес продукта в граммах
+     * price - цена продукта в сиклях
      */
     protected int weight;
     protected int price;
@@ -28,7 +28,7 @@ public abstract class Candy {
     /**
      * Геттер для веса продукта
      *
-     * @return Целое число - вес продукта
+     * @return Значение веса продукта
      */
     public int getWeight() {
         return weight;
@@ -37,7 +37,7 @@ public abstract class Candy {
     /**
      * Сеттер для веса продукта
      *
-     * @param weight Целое число - вес продукта
+     * @param weight Значение веса продукта
      */
     public void setWeight(int weight) {
         this.weight = weight;
@@ -46,7 +46,7 @@ public abstract class Candy {
     /**
      * Геттер для цены продукта
      *
-     * @return Целое число - цена продукта
+     * @return Значение цены продукта
      */
     public int getPrice() {
         return price;
@@ -55,7 +55,7 @@ public abstract class Candy {
     /**
      * Сеттер для цены продукта
      *
-     * @param price Целое число - цена продукта
+     * @param price Значение цены продукта
      */
     public void setPrice(int price) {
         this.price = price;
