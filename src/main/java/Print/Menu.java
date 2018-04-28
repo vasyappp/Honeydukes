@@ -1,6 +1,16 @@
 package Print;
 
+/**
+ * Класс Menu
+ * Выводит различные меню выбора желаемого действия
+ *
+ * @author Natalia Litvinova
+ */
+
 public class Menu {
+    /**
+     * Меню выбора действия: просмотр имеющихся продуктов или покупка подарка
+     */
     public static void printMenu() {
         System.out.println("What do you want to do?");
         System.out.println("1. Check the list of products in Honeydukes");
@@ -8,6 +18,9 @@ public class Menu {
         System.out.println("3. Exit");
     }
 
+    /**
+     * Меню просмотра информации об имеющихся продуктах
+     */
     public static void printMenuProducts() {
         System.out.println("What do you want to check?");
         System.out.println("1. Check all products");
@@ -19,6 +32,9 @@ public class Menu {
         System.out.println("7. Go back to main menu");
     }
 
+    /**
+     * Меню выбора действия: покупка готового подарка или составление нового
+     */
     public static void printMenuGift() {
         System.out.println("We have prepared some gifts for you! Do you want one? Or do you want to create a pack?");
         System.out.println("1. Buy a prepared gift");
@@ -26,6 +42,9 @@ public class Menu {
         System.out.println("3. Go back to main menu");
     }
 
+    /**
+     * Меню выбора подготовленного подарка
+     */
     public static void printMenuGiftPrepared() {
         System.out.println("Here are the options!\n");
         System.out.println("Pack 1: Weasley's Will");
@@ -45,6 +64,9 @@ public class Menu {
         System.out.println("5. Go back to gift picking");
     }
 
+    /**
+     * Меню выбора типа продукта для добавления в подарок
+     */
     public static void printMenuGiftCreating() {
         System.out.println("Which product do you want to add?");
         System.out.println("1. Bertie Bott's beans");
@@ -56,6 +78,9 @@ public class Menu {
         System.out.println("7. Go back to gift picking");
     }
 
+    /**
+     * Меню выбора продука типа "Драже Берти Боттс" для добавления в подарок
+     */
     public static void printMenuGiftCreatingBertie() {
         System.out.println("What do you want to do?");
         System.out.println("1. Check all Bertie Bott's beans products");
@@ -67,6 +92,9 @@ public class Menu {
         System.out.println("7. Go back to add a different product");
     }
 
+    /**
+     * Меню выбора продукта типа "Шоколадная лягушка" для добавления в подарок
+     */
     public static void printMenuGiftCreatingFrogs() {
         System.out.println("What do you want to do?");
         System.out.println("1. Check all Chocolate Frogs products");
@@ -77,6 +105,9 @@ public class Menu {
         System.out.println("6. Go back to add a different product");
     }
 
+    /**
+     * Меню выбора продукта типа "Шоколадная волшебная палочка" для добавления в подарок
+     */
     public static void printMenuGiftCreatingWands() {
         System.out.println("What do you want to do?");
         System.out.println("1. Check all Chocolate Wands products");
@@ -86,6 +117,9 @@ public class Menu {
         System.out.println("5. Go back to add a different product");
     }
 
+    /**
+     * Меню выбора продукта типа "Жвачка Друбла" для добавления в подарок
+     */
     public static void printMenuGiftCreatingGums() {
         System.out.println("What do you want to do?");
         System.out.println("1. Check all Drooble's Gums products");
@@ -94,6 +128,9 @@ public class Menu {
         System.out.println("4. Go back to add a different product");
     }
 
+    /**
+     * Меню выбора продукта типа "Сахарные перья для письма" для добавления в подарок
+     */
     public static void printMenuGiftCreatingQuills() {
         System.out.println("What do you want to do?");
         System.out.println("1. Check all Sugar Quills products");
