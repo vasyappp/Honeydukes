@@ -2,7 +2,7 @@ package Candies;
 
 /**
  * Класс SugarQuill
- * Описывает продукт типа "Сахарные перья для письма"
+ * Описывает продукт типа "Сахарное перо"
  *
  * @see Candy
  *
@@ -78,13 +78,13 @@ public class SugarQuill extends Candy {
      */
     @Override
     public void print() {
-        //Вывод информации о весе и цене продукта
+        // Вывод информации о весе и цене продукта
         System.out.println("Weight of the quill:");
         System.out.println(this.getWeight() + "g");
         System.out.println("Price of the quill:");
         System.out.println(this.getPrice() + " sickles");
 
-        //Вывод информации в зависимости от того, является ли продукт Делюкс-изданием
+        // Вывод информации в зависимости от того, является ли продукт Делюкс-изданием
         if (this.isDeluxe()) {
             System.out.println("Deluxe quill: you can suck it for one day");
         } else {

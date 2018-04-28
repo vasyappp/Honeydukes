@@ -75,13 +75,13 @@ public class BertieBotts extends Candy {
      */
     @Override
     public void print() {
-        //Вывод веса и цены продукта
+        // Вывод веса и цены продукта
         System.out.println("Weight of the pack:");
         System.out.println(this.getWeight() + "g");
         System.out.println("Price of the pack:");
         System.out.println(this.getPrice() + " sickles");
 
-        //Вывод информации о наборе вкусов продукта
+        // Вывод информации о наборе вкусов продукта
         System.out.println("Flavour mix:");
         switch (this.getFlavourMix()) {
             case "Every":

@@ -4,7 +4,7 @@ import Candies.*;
 
 /**
  * Класс Honeydukes
- * Хранит данные обо всех имеющихся продуктах, а также данные о готовых подарках
+ * "Магазин" - хранит данные обо всех имеющихся продуктах, а также данные о готовых подарках
  *
  * @see Candies
  * @see Gift
@@ -199,7 +199,7 @@ public class Honeydukes {
             System.out.println("Product №" + i);
             System.out.println();
 
-            //Вывод информации в зависимости от того, объектом какого типа является первый продукт массива
+            // Вывод информации в зависимости от того, объектом какого типа является первый продукт массива
             if (run[0] instanceof BertieBotts) {
                 this.printBertieBottsList();
             } else if (run[0] instanceof ChocolateFrog) {

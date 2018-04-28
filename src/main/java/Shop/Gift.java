@@ -113,17 +113,17 @@ public class Gift {
      * @param amount Количество продукта
      */
     public void addAPack(Candy product, int amount) {
-        //Задание начальных значений переменных
+        // Задание начальных значений переменных
         int addIndex = this.getLength();
         Candy[] addPack = this.getProduct();
         int[] addAmount = this.getAmount();
 
-        //Добавление нового продукта список
+        // Добавление нового продукта список
         addPack[addIndex] = product;
         addAmount[addIndex] = amount;
         addIndex++;
 
-        //Сохранение изменений
+        // Сохранение изменений
         this.setProduct(addPack);
         this.setAmount(addAmount);
         this.setLength(addIndex);
@@ -136,15 +136,15 @@ public class Gift {
      * Рассчитывается в зависимости от продуктов, содержащихся в подарке
      */
     private void setTotalPrice() {
-        //Задание значений переменных
+        // Задание значений переменных
         Candy[] presentPack = this.getProduct();
         int[] presentAmount = this.getAmount();
         int length = this.getLength();
 
-        //Переменная для подсчета общей стоимости
+        // Переменная для подсчета общей стоимости
         int count = 0;
 
-        //Вычисление стоимости каждого продукта в зависимости от его количества в подарке и добавление к общей стоимости
+        // Вычисление стоимости каждого продукта в зависимости от его количества в подарке и добавление к общей стоимости
         for (int i = 0; i < length; i++) {
             count += presentPack[i].getPrice() * presentAmount[i];
         }
@@ -157,15 +157,15 @@ public class Gift {
      * Рассчитывается в зависимости от продуктов, содержащихся в подарке
      */
     private void setTotalWeight() {
-        //Задание начальных значений переменных
+        // Задание начальных значений переменных
         Candy[] presentPack = this.getProduct();
         int[] presentAmount = this.getAmount();
         int length = this.getLength();
 
-        //Переменная для подсчета общего веса
+        // Переменная для подсчета общего веса
         int count = 0;
 
-        //Вычисление веса каждого типа продукта в зависимости от его количества в подарке и добавление к общему весу
+        // Вычисление веса каждого типа продукта в зависимости от его количества в подарке и добавление к общему весу
         for (int i = 0; i < length; i++) {
             count += presentPack[i].getWeight() * presentAmount[i];
         }
@@ -177,7 +177,7 @@ public class Gift {
      * Метод вывода информации о подарке
      */
     public void print() {
-        //Задание значений переменных
+        // Задание значений переменных
         Candy[] runPack = this.getProduct();
         int[] runAmount = this.getAmount();
         int length = this.length;
@@ -185,7 +185,7 @@ public class Gift {
         System.out.println("\nWhat's in this gift:\n\n");
 
         if (length != 0) {
-            //Если подарок не пуст, вывод информации о каждом из продуктов подарка
+            // Если подарок не пуст, вывод информации о каждом из продуктов подарка
             for (int i = 0; i < length; i++) {
                 System.out.println("Product №" + (i + 1) + ":\n");
 
@@ -203,19 +203,19 @@ public class Gift {
 
                 runPack[i].print();
 
-                //Вывод количества продукта в подарке
+                // Вывод количества продукта в подарке
                 System.out.println("\nAmount of product №" + (i + 1) + ": " + runAmount[i] + "\n\n");
             }
         } else
-            //Вывод сообщения о том, что подарок пуст
+            // Вывод сообщения о том, что подарок пуст
             System.out.println("Your gift is empty\n\n");
 
-        //Вывод общего веса подарка с преобразованием (1 кг = 1000 г)
+        // Вывод общего веса подарка с преобразованием (1 кг = 1000 г)
         System.out.println("Total weight of this gift:");
         int weight = this.getTotalWeight();
         System.out.println(weight / 1000 + " kg " + weight % 1000 + " g (" + weight + " g)");
 
-        //Вывод общей цены подарка с преобразованием (1 Галеон = 17 Сиклей)
+        // Вывод общей цены подарка с преобразованием (1 Галеон = 17 Сиклей)
         System.out.println("\nTotal price of this gift (1 Galleon = 17 Sickles):");
         int price = this.getTotalPrice();
         System.out.println(price / 17 + " Galleons " + price % 17 + " Sickles (" + price + " Sickles)\n\n");
