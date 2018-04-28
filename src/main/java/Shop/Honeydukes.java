@@ -2,31 +2,75 @@ package Shop;
 
 import Candies.*;
 
+/**
+ * Класс Honeydukes
+ * Хранит данные обо всех имеющихся продуктах, а также данные о готовых подарках
+ *
+ * @see Candies
+ * @see Gift
+ *
+ * @author Natalia Litvinova
+ */
+
 public class Honeydukes {
+    /**
+     * Атрибуты класса:
+     * Список имеющихся продуктов
+     * Список готовых подарков
+     */
     private Candy[][] products;
     private Gift[] gifts;
 
+    /**
+     * Конструктор с заданными параметрами
+     *
+     * @param products Список продуктов
+     * @param gifts Список готовых подарков
+     */
     public Honeydukes(Candy[][] products, Gift[] gifts) {
         this.products = products;
         this.gifts = gifts;
     }
 
+    /**
+     * Геттер для списка продуктов
+     *
+     * @return Список продуктов
+     */
     public Candy[][] getProducts() {
         return products;
     }
 
+    /**
+     * Сеттер для списка продуктов
+     *
+     * @param products Список продуктов
+     */
     public void setProducts(Candy[][] products) {
         this.products = products;
     }
 
+    /**
+     * Геттер для списка подарков
+     *
+     * @return Список подарков
+     */
     public Gift[] getGifts() {
         return gifts;
     }
 
+    /**
+     * Сеттер для списка подарков
+     *
+     * @param gifts Список подарков
+     */
     public void setGifts(Gift[] gifts) {
         this.gifts = gifts;
     }
 
+    /**
+     * Вывод информации обо всех имеющихся продуктах типа "Драже Берти Боттс"
+     */
     public void printBertieBottsList() {
         System.out.println("Name of product:");
         System.out.println(BertieBotts.getFullName());
@@ -48,6 +92,9 @@ public class Honeydukes {
         }
     }
 
+    /**
+     * Вывод информации обо всех имеющихся продуктах типа "Шоколадная лягушка"
+     */
     public void printFrogsList() {
         System.out.println("Name of product:");
         System.out.println(ChocolateFrog.getFullName());
@@ -69,6 +116,9 @@ public class Honeydukes {
         }
     }
 
+    /**
+     * Вывод информации обо всех имеющихся продуктах типа "Шоколадная волшебная палочка"
+     */
     public void printWandsList() {
         System.out.println("Name of product:");
         System.out.println(ChocolateWand.getFullName());
@@ -90,6 +140,9 @@ public class Honeydukes {
         }
     }
 
+    /**
+     * Вывод информации обо всех имеющихся продуктах типа "Жвачка Друбла"
+     */
     public void printGumsList() {
         System.out.println("Name of product:");
         System.out.println(DroobleGum.getFullName());
@@ -111,6 +164,9 @@ public class Honeydukes {
         }
     }
 
+    /**
+     * Вывод информации обо всех имеющихся продуктах типа "Сахарные перья для письма"
+     */
     public void printQuillsList() {
         System.out.println("Name of product:");
         System.out.println(SugarQuill.getFullName());
@@ -132,6 +188,9 @@ public class Honeydukes {
         }
     }
 
+    /**
+     * Вывод информации обо всех имеющихся продуктах
+     */
     public void printHoneydukes() {
         int i = 1;
         Candy[][] honeydukes = this.getProducts();
@@ -139,6 +198,8 @@ public class Honeydukes {
         for (Candy[] run: honeydukes) {
             System.out.println("Product №" + i);
             System.out.println();
+
+            //Вывод информации в зависимости от того, объектом какого типа является первый продукт массива
             if (run[0] instanceof BertieBotts) {
                 this.printBertieBottsList();
             } else if (run[0] instanceof ChocolateFrog) {
