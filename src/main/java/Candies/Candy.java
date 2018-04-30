@@ -19,7 +19,6 @@ public abstract class Candy {
     int weight;
     int price;
 
-
     /**
      * Конструктор без заданных параметров
      */
@@ -65,22 +64,29 @@ public abstract class Candy {
         this.price = price;
     }
 
-    /**
-     * Абстрактный метод для вывода информации о продукте
-     * Переопределяется в наследниках
-     */
-    public abstract void print();
-
-    public static String getFullName() {return "";}
-
-    public static String getDescription() {return "";}
-
     public String getShortName() {
         return shortName;
     }
 
     public void setShortName(String shortName) {
         this.shortName = shortName;
+    }
+
+    public abstract String getFullName();
+
+    public abstract String getDescription();
+
+    /**
+     * Абстрактный метод для вывода информации о продукте
+     * Переопределяется в наследниках
+     */
+    public abstract void print();
+
+    public void printHeader() {
+        System.out.println("Name of product:");
+        System.out.println(this.getFullName());
+        System.out.println("Description of product:");
+        System.out.println(this.getDescription());
     }
 
     @Override

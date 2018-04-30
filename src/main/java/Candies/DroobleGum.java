@@ -12,16 +12,13 @@ import java.util.Objects;
  */
 
 public class DroobleGum extends Candy {
-    /**
-     * Атрибуты класса:
-     * Статическая переменная fullName - полное название продукта
-     * Статическая переменная description - краткое описание продукта
-     * Переменная flavour  - описывает вкус продукта
-     */
-    private static final String fullName = "Drooble's Best Blowing Gum";
-    private static final String description = "Lets the consumer blow bluebell-coloured bubbles which would not pop for days";
     private String flavour;
 
+
+    public DroobleGum() {
+        super();
+        this.flavour = "";
+    }
 
     /**
      * Конструктор с заданными параметрами
@@ -35,24 +32,6 @@ public class DroobleGum extends Candy {
         this.weight = weight;
         this.price = price;
         this.flavour = flavour;
-    }
-
-    /**
-     * Статический геттер для полного названия продукта
-     *
-     * @return Значение полного названия продукта
-     */
-    public static String getFullName() {
-        return fullName;
-    }
-
-    /**
-     * Статический геттер для описания продукта
-     *
-     * @return Значение описания продукта
-     */
-    public static String getDescription() {
-        return description;
     }
 
     /**
@@ -71,6 +50,16 @@ public class DroobleGum extends Candy {
      */
     public void setFlavour(String flavour) {
         this.flavour = flavour;
+    }
+
+    @Override
+    public String getFullName() {
+        return Description.getDroobleGumFullName();
+    }
+
+    @Override
+    public String getDescription() {
+        return Description.getDroobleGumDescription();
     }
 
     /**

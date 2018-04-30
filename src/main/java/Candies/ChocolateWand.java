@@ -12,17 +12,13 @@ import java.util.Objects;
  */
 
 public class ChocolateWand extends Candy {
-    /**
-     * Атрибуты класса:
-     * Статическая переменная fullName - полное название продукта
-     * Статическая переменная description - краткое описание продукта
-     * Переменная core - описывает начинку продукта (три опции: "Unicorn hair", "Phoenix feather",
-     * "Dragon heartstring")
-     */
-    private static final String fullName = "Chocolate Wand";
-    private static final String description = "Chocolate wand-shaped sweets with a magical substance at its core";
     private String core;
 
+
+    public ChocolateWand() {
+        super();
+        this.core = "";
+    }
 
     /**
      * Конструктор с заданными параметрами
@@ -35,24 +31,6 @@ public class ChocolateWand extends Candy {
         this.weight = weight;
         this.price = 10;
         this.core = core;
-    }
-
-    /**
-     * Статический геттер для полного названия продукта
-     *
-     * @return Значение полного названия продукта
-     */
-    public static String getFullName() {
-        return fullName;
-    }
-
-    /**
-     * Статический геттер для описания продукта
-     *
-     * @return Значение описания продукта
-     */
-    public static String getDescription() {
-        return description;
     }
 
     /**
@@ -71,6 +49,16 @@ public class ChocolateWand extends Candy {
      */
     public void setCore(String core) {
         this.core = core;
+    }
+
+    @Override
+    public String getFullName() {
+        return Description.getChocolateWandFullName();
+    }
+
+    @Override
+    public String getDescription() {
+        return Description.getChocolateWandDescription();
     }
 
     /**

@@ -12,17 +12,13 @@ import java.util.Objects;
  */
 
 public class SugarQuill extends Candy {
-    /**
-     * Атрибуты класса:
-     * Статическая переменная fullName - полное название продукта
-     * Статическая переменная description - краткое описание продукта
-     * Переменная deluxe - сообщает, является ли продукт изданием Deluxe или нет
-     */
-    private static final String fullName = "Sugar Quill";
-    private static final String description = "Delicate, spun-sugar sweets made to resemble real quills.";
     private boolean deluxe;
 
 
+    public SugarQuill() {
+        super();
+        this.deluxe = false;
+    }
     /**
      * Конструктор с заданными параметрами
      *
@@ -42,24 +38,6 @@ public class SugarQuill extends Candy {
     }
 
     /**
-     * Статический геттер для полного названия продукта
-     *
-     * @return Значение полного названия продукта
-     */
-    public static String getFullName() {
-        return fullName;
-    }
-
-    /**
-     * Статический геттер для описания продукта
-     *
-     * @return Значение описания продукта
-     */
-    public static String getDescription() {
-        return description;
-    }
-
-    /**
      * Геттер для информации о том, является ли продукт Делюкс-изданием
      *
      * @return Делюкс-продукт или нет
@@ -75,6 +53,24 @@ public class SugarQuill extends Candy {
      */
     public void setDeluxe(boolean deluxe) {
         this.deluxe = deluxe;
+
+        if (deluxe) {
+            this.setWeight(35);
+            this.setPrice(15);
+        } else {
+            this.setWeight(30);
+            this.setPrice(10);
+        }
+    }
+
+    @Override
+    public String getFullName() {
+        return Description.getSugarQuillFullName();
+    }
+
+    @Override
+    public String getDescription() {
+        return Description.getSugarQuillDescription();
     }
 
     /**

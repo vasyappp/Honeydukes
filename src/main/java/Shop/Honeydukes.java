@@ -20,7 +20,7 @@ public class Honeydukes {
      * Список имеющихся продуктов
      * Список готовых подарков
      */
-    private HashMap<String, LinkedList<Candy>> products;
+    private HashMap<String, ArrayList<Candy>> products;
     private ArrayList<Gift> gifts;
 
     public Honeydukes() {
@@ -28,16 +28,16 @@ public class Honeydukes {
         this.gifts = new ArrayList<>();
     }
 
-    public Honeydukes(HashMap<String, LinkedList<Candy>> products, ArrayList<Gift> gifts) {
+    public Honeydukes(HashMap<String, ArrayList<Candy>> products, ArrayList<Gift> gifts) {
         this.products = products;
         this.gifts = gifts;
     }
 
-    public HashMap<String, LinkedList<Candy>> getProducts() {
+    public HashMap<String, ArrayList<Candy>> getProducts() {
         return products;
     }
 
-    public void setProducts(HashMap<String, LinkedList<Candy>> products) {
+    public void setProducts(HashMap<String, ArrayList<Candy>> products) {
         this.products = products;
     }
 
@@ -50,12 +50,12 @@ public class Honeydukes {
     }
 
     public boolean addAProduct(Candy product) {
-        HashMap<String, LinkedList<Candy>> products = this.getProducts();
+        HashMap<String, ArrayList<Candy>> products = this.getProducts();
 
         String key = product.getFullName();
 
         if (products.containsKey(key)) {
-            LinkedList<Candy> productList = products.get(key);
+            ArrayList<Candy> productList = products.get(key);
 
             if (productList.contains(product))
                 return false;
@@ -69,7 +69,7 @@ public class Honeydukes {
                 return true;
             }
         } else {
-            LinkedList<Candy> productList = new LinkedList<>();
+            ArrayList<Candy> productList = new ArrayList<>();
 
             productList.add(product);
 
@@ -96,19 +96,15 @@ public class Honeydukes {
     }
 
     public void printOneList(String fullName) {
-        HashMap<String, LinkedList<Candy>> products = this.getProducts();
+        HashMap<String, ArrayList<Candy>> products = this.getProducts();
 
         if (products.containsKey(fullName)) {
-            LinkedList<Candy> productsList = products.get(fullName);
+            ArrayList<Candy> productsList = products.get(fullName);
             if (!productsList.isEmpty()) {
                 Iterator<Candy> iterator = productsList.iterator();
                 Candy candy = iterator.next();
 
-                System.out.println("Name of product:");
-                System.out.println(candy.getFullName());
-                System.out.println("Description of product:");
-                System.out.println(candy.getDescription());
-
+                candy.printHeader();
 
                 System.out.println("\nTypes of product:\n");
 
@@ -131,11 +127,11 @@ public class Honeydukes {
     }
 
     public void printHoneydukes() {
-        HashMap<String, LinkedList<Candy>> products = this.getProducts();
+        HashMap<String, ArrayList<Candy>> products = this.getProducts();
 
         int i = 1;
 
-        for (Map.Entry<String, LinkedList<Candy>> entry : products.entrySet()) {
+        for (Map.Entry<String, ArrayList<Candy>> entry : products.entrySet()) {
             System.out.println("Product №" + i + "\n");
 
             this.printOneList(entry.getKey());
@@ -149,9 +145,11 @@ public class Honeydukes {
     public void printGiftsList() {
         ArrayList<Gift> gifts = this.getGifts();
 
-        int i = 1;
+        int i = 0;
 
         for (Gift gift : gifts) {
+            i++;
+
             System.out.println("Gift №" + i + "\n");
             System.out.println("\"" + gift.getFullName() + "\"");
             System.out.println(gift.getDescription());

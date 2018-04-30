@@ -18,10 +18,12 @@ public class BertieBotts extends Candy {
      * Статическая переменная description - краткое описание продукта
      * Переменная flavourMix - какие вкусы содержит продукт (три опции: "Every", "Ordinary", "Eeew")
      */
-    private static final String fullName = "Bertie Bott's Every Flavour Beans";
-    private static final String description = "Jelly beans with every flavor imaginable";
     private String flavourMix;
 
+    public BertieBotts() {
+        super();
+        this.flavourMix = "";
+    }
 
     /**
      * Конструктор с заданными параметрами
@@ -35,24 +37,6 @@ public class BertieBotts extends Candy {
         this.weight = weight;
         this.price = price;
         this.flavourMix = flavourMix;
-    }
-
-    /**
-     * Статический геттер для полного названия продукта
-     *
-     * @return Значение полного названия продукта
-     */
-    public static String getFullName() {
-        return fullName;
-    }
-
-    /**
-     * Статический геттер для описания продукта
-     *
-     * @return Значение описания продукта
-     */
-    public static String getDescription() {
-        return description;
     }
 
     /**
@@ -71,6 +55,16 @@ public class BertieBotts extends Candy {
      */
     public void setFlavourMix(String flavourMix) {
         this.flavourMix = flavourMix;
+    }
+
+    @Override
+    public String getFullName() {
+        return Description.getBertieBottsFullName();
+    }
+
+    @Override
+    public String getDescription() {
+        return Description.getBertieBottsDescription();
     }
 
     /**

@@ -16,8 +16,8 @@ import java.util.Objects;
  */
 
 public class Gift {
-    private static String fullName;
-    private static String description;
+    private String fullName;
+    private String description;
     private HashMap<Candy, Integer> gift;
     private int totalPrice;
     private int totalWeight;
@@ -27,31 +27,35 @@ public class Gift {
      * Конструктор без параметров
      */
     public Gift() {
+        this.fullName = "";
+        this.description = "";
         this.gift = new HashMap<>();
         this.totalPrice = 0;
         this.totalWeight = 0;
     }
 
-    public Gift(HashMap<Candy, Integer> gift) {
+    public Gift(HashMap<Candy, Integer> gift, String fullName, String description) {
+        this.fullName = fullName;
+        this.description = description;
         this.gift = gift;
         this.setTotalPrice();
         this.setTotalWeight();
     }
 
-    public static String getFullName() {
+    public String getFullName() {
         return fullName;
     }
 
-    public static void setFullName(String fullName) {
-        Gift.fullName = fullName;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public static String getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public static void setDescription(String description) {
-        Gift.description = description;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public HashMap<Candy, Integer> getGift() {

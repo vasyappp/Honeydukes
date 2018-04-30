@@ -12,16 +12,13 @@ import java.util.Objects;
  */
 
 public class ChocolateFrog extends Candy {
-    /**
-     * Атрибуты класса:
-     * Статическая переменная fullName - полное название продукта
-     * Статическая переменная description - краткое описание продукта
-     * Переменная collectionYear - карточка с волшебником какого века находится в продукте
-     */
-    private static final String fullName = "Chocolate Frog";
-    private static final String description = "A sweet frog-shaped chocolate with a random collectible card";
     private String collectionYear;
 
+
+    public ChocolateFrog() {
+        super();
+        this.collectionYear = "";
+    }
 
     /**
      * Конструктор с заданными параметрами
@@ -34,24 +31,6 @@ public class ChocolateFrog extends Candy {
         this.weight = 200;
         this.price = price;
         this.collectionYear = collectionYear;
-    }
-
-    /**
-     * Статический геттер для полного названия продукта
-     *
-     * @return Значение полного названия продукта
-     */
-    public static String getFullName() {
-        return fullName;
-    }
-
-    /**
-     * Статический геттер для описания продукта
-     *
-     * @return Значение описания продукта
-     */
-    public static String getDescription() {
-        return description;
     }
 
     /**
@@ -70,6 +49,16 @@ public class ChocolateFrog extends Candy {
      */
     public void setCollectionYear(String collectionYear) {
         this.collectionYear = collectionYear;
+    }
+
+    @Override
+    public String getFullName() {
+        return Description.getChocolateFrogFullName();
+    }
+
+    @Override
+    public String getDescription() {
+        return Description.getChocolateFrogDescription();
     }
 
     /**
