@@ -4,6 +4,7 @@ import Candies.*;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Класс Gift
@@ -164,5 +165,21 @@ public class Gift {
         System.out.println("\nTotal price of this gift (1 Galleon = 17 Sickles):");
         int price = this.getTotalPrice();
         System.out.println(price / 17 + " Galleons " + price % 17 + " Sickles (" + price + " Sickles)\n\n");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Gift gift1 = (Gift) o;
+        return getTotalPrice() == gift1.getTotalPrice() &&
+                getTotalWeight() == gift1.getTotalWeight() &&
+                Objects.equals(getGift(), gift1.getGift());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getGift(), getTotalPrice(), getTotalWeight());
     }
 }

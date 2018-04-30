@@ -2,6 +2,8 @@ package Shop;
 
 import Candies.*;
 
+import java.util.*;
+
 /**
  * Класс Honeydukes
  * "Магазин" - хранит данные обо всех имеющихся продуктах, а также данные о готовых подарках
@@ -18,203 +20,149 @@ public class Honeydukes {
      * Список имеющихся продуктов
      * Список готовых подарков
      */
-    private Candy[][] products;
-    private Gift[] gifts;
+    private HashMap<String, LinkedList<Candy>> products;
+    private ArrayList<Gift> gifts;
 
-    /**
-     * Конструктор с заданными параметрами
-     *
-     * @param products Список продуктов
-     * @param gifts Список готовых подарков
-     */
-    public Honeydukes(Candy[][] products, Gift[] gifts) {
+    public Honeydukes() {
+        this.products = new HashMap<>();
+        this.gifts = new ArrayList<>();
+    }
+
+    public Honeydukes(HashMap<String, LinkedList<Candy>> products, ArrayList<Gift> gifts) {
         this.products = products;
         this.gifts = gifts;
     }
 
-    /**
-     * Геттер для списка продуктов
-     *
-     * @return Список продуктов
-     */
-    public Candy[][] getProducts() {
+    public HashMap<String, LinkedList<Candy>> getProducts() {
         return products;
     }
 
-    /**
-     * Сеттер для списка продуктов
-     *
-     * @param products Список продуктов
-     */
-    public void setProducts(Candy[][] products) {
+    public void setProducts(HashMap<String, LinkedList<Candy>> products) {
         this.products = products;
     }
 
-    /**
-     * Геттер для списка подарков
-     *
-     * @return Список подарков
-     */
-    public Gift[] getGifts() {
+    public ArrayList<Gift> getGifts() {
         return gifts;
     }
 
-    /**
-     * Сеттер для списка подарков
-     *
-     * @param gifts Список подарков
-     */
-    public void setGifts(Gift[] gifts) {
+    public void setGifts(ArrayList<Gift> gifts) {
         this.gifts = gifts;
     }
 
-    /**
-     * Вывод информации обо всех имеющихся продуктах типа "Драже Берти Боттс"
-     */
-    public void printBertieBottsList() {
-        System.out.println("Name of product:");
-        System.out.println(BertieBotts.getFullName());
-        System.out.println("Description of product:");
-        System.out.println(BertieBotts.getDescription());
-        System.out.println();
+    public boolean addAProduct(Candy product) {
+        HashMap<String, LinkedList<Candy>> products = this.getProducts();
 
-        System.out.println("Types of product:");
-        System.out.println();
+        String key = product.getFullName();
 
-        int i = 0;
-        BertieBotts[] bertieBotts = (BertieBotts[])this.getProducts()[0];
+        if (products.containsKey(key)) {
+            LinkedList<Candy> productList = products.get(key);
 
-        for (BertieBotts run : bertieBotts) {
-            i++;
-            System.out.println("Pack №" + i);
-            run.print();
-            System.out.println();
-        }
-    }
+            if (productList.contains(product))
+                return false;
+            else {
+                productList.add(product);
 
-    /**
-     * Вывод информации обо всех имеющихся продуктах типа "Шоколадная лягушка"
-     */
-    public void printFrogsList() {
-        System.out.println("Name of product:");
-        System.out.println(ChocolateFrog.getFullName());
-        System.out.println("Description of product:");
-        System.out.println(ChocolateFrog.getDescription());
-        System.out.println();
+                products.put(key, productList);
 
-        System.out.println("Types of product:");
-        System.out.println();
+                this.setProducts(products);
 
-        ChocolateFrog[] frogs = (ChocolateFrog[])this.getProducts()[1];
-        int i = 0;
-
-        for (ChocolateFrog run : frogs) {
-            i++;
-            System.out.println("Frog №" + i);
-            run.print();
-            System.out.println();
-        }
-    }
-
-    /**
-     * Вывод информации обо всех имеющихся продуктах типа "Шоколадная волшебная палочка"
-     */
-    public void printWandsList() {
-        System.out.println("Name of product:");
-        System.out.println(ChocolateWand.getFullName());
-        System.out.println("Description of product:");
-        System.out.println(ChocolateWand.getDescription());
-        System.out.println();
-
-        System.out.println("Types of product:");
-        System.out.println();
-
-        ChocolateWand[] wands = (ChocolateWand[])this.getProducts()[2];
-        int i = 0;
-
-        for (ChocolateWand run : wands) {
-            i++;
-            System.out.println("Wand №" + i);
-            run.print();
-            System.out.println();
-        }
-    }
-
-    /**
-     * Вывод информации обо всех имеющихся продуктах типа "Жвачка Друбла"
-     */
-    public void printGumsList() {
-        System.out.println("Name of product:");
-        System.out.println(DroobleGum.getFullName());
-        System.out.println("Description of product:");
-        System.out.println(DroobleGum.getDescription());
-        System.out.println();
-
-        System.out.println("Types of product:");
-        System.out.println();
-
-        DroobleGum[] gums = (DroobleGum[])this.getProducts()[3];
-        int i = 0;
-
-        for (DroobleGum run : gums) {
-            i++;
-            System.out.println("Gum №" + i);
-            run.print();
-            System.out.println();
-        }
-    }
-
-    /**
-     * Вывод информации обо всех имеющихся продуктах типа "Сахарные перья для письма"
-     */
-    public void printQuillsList() {
-        System.out.println("Name of product:");
-        System.out.println(SugarQuill.getFullName());
-        System.out.println("Description of product:");
-        System.out.println(SugarQuill.getDescription());
-        System.out.println();
-
-        System.out.println("Types of product:");
-        System.out.println();
-
-        SugarQuill[] quills = (SugarQuill[])this.getProducts()[4];
-        int i = 0;
-
-        for (SugarQuill run : quills) {
-            i++;
-            System.out.println("Quill №" + i);
-            run.print();
-            System.out.println();
-        }
-    }
-
-    /**
-     * Вывод информации обо всех имеющихся продуктах
-     */
-    public void printHoneydukes() {
-        int i = 1;
-        Candy[][] honeydukes = this.getProducts();
-
-        for (Candy[] run: honeydukes) {
-            System.out.println("Product №" + i);
-            System.out.println();
-
-            // Вывод информации в зависимости от того, объектом какого типа является первый продукт массива
-            if (run[0] instanceof BertieBotts) {
-                this.printBertieBottsList();
-            } else if (run[0] instanceof ChocolateFrog) {
-                this.printFrogsList();
-            } else if (run[0] instanceof ChocolateWand) {
-                this.printWandsList();
-            } else if (run[0] instanceof DroobleGum) {
-                this.printGumsList();
-            } else if (run[0] instanceof SugarQuill) {
-                this.printQuillsList();
+                return true;
             }
+        } else {
+            LinkedList<Candy> productList = new LinkedList<>();
+
+            productList.add(product);
+
+            products.put(key, productList);
+
+            this.setProducts(products);
+
+            return true;
+        }
+    }
+
+    public boolean addAGift(Gift gift) {
+        ArrayList<Gift> gifts = this.getGifts();
+
+        if (gifts.contains(gift))
+            return false;
+        else {
+            gifts.add(gift);
+
+            this.setGifts(gifts);
+
+            return true;
+        }
+    }
+
+    public void printOneList(String fullName) {
+        HashMap<String, LinkedList<Candy>> products = this.getProducts();
+
+        if (products.containsKey(fullName)) {
+            LinkedList<Candy> productsList = products.get(fullName);
+            if (!productsList.isEmpty()) {
+                Iterator<Candy> iterator = productsList.iterator();
+                Candy candy = iterator.next();
+
+                System.out.println("Name of product:");
+                System.out.println(candy.getFullName());
+                System.out.println("Description of product:");
+                System.out.println(candy.getDescription());
+
+
+                System.out.println("\nTypes of product:\n");
+
+                int i = 1;
+                System.out.println("Pack №" + i);
+                candy.print();
+                System.out.println();
+
+                while (iterator.hasNext()) {
+                    candy = iterator.next();
+                    i++;
+                    System.out.println("Pack №" + i);
+                    candy.print();
+                    System.out.println();
+                }
+            } else
+                System.out.println("\nOoops! Zero products named " + fullName + " found\n");
+        } else
+            System.out.println("\nOoops! Zero products named " + fullName + " found\n");
+    }
+
+    public void printHoneydukes() {
+        HashMap<String, LinkedList<Candy>> products = this.getProducts();
+
+        int i = 1;
+
+        for (Map.Entry<String, LinkedList<Candy>> entry : products.entrySet()) {
+            System.out.println("Product №" + i + "\n");
+
+            this.printOneList(entry.getKey());
 
             System.out.println();
 
             i++;
+        }
+    }
+
+    public void printGiftsList() {
+        ArrayList<Gift> gifts = this.getGifts();
+
+        int i = 1;
+
+        for (Gift gift : gifts) {
+            System.out.println("Gift №" + i + "\n");
+            System.out.println("\"" + gift.getFullName() + "\"");
+            System.out.println(gift.getDescription());
+
+            System.out.println("\nTotal weight of this gift (1 kg = 1000 g):");
+            int weight = gift.getTotalWeight();
+            System.out.println(weight / 1000 + " kg " + weight % 1000 + " g (" + weight + " g)");
+
+            System.out.println("\nTotal price of this gift (1 Galleon = 17 Sickles):");
+            int price = gift.getTotalPrice();
+            System.out.println(price / 17 + " Galleons " + price % 17 + " Sickles (" + price + " Sickles)\n\n");
         }
     }
 }
