@@ -699,6 +699,8 @@ public class Main {
         // Генерация списка доступных товаров и готовых подарков
         Honeydukes honeydukes = generateHoneydukes();
 
+        System.out.println("One more hello");
+
         System.out.println("Welcome to Honeydukes!\n");
 
         while (true) {
