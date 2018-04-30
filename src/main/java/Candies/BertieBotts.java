@@ -1,5 +1,7 @@
 package Candies;
 
+import java.util.Objects;
+
 /**
  * Класс BertieBotts
  * Описывает продукт типа "Драже Берти Боттс"
@@ -28,7 +30,8 @@ public class BertieBotts extends Candy {
      * @param price Значение цены продукта
      * @param flavourMix Значение набора вкусов
      */
-    public BertieBotts (int weight, int price, String flavourMix) {
+    public BertieBotts (String shortName, int weight, int price, String flavourMix) {
+        this.shortName = shortName;
         this.weight = weight;
         this.price = price;
         this.flavourMix = flavourMix;
@@ -94,5 +97,20 @@ public class BertieBotts extends Candy {
                 System.out.println("Extreme flavours for those who likes earwax & dirty socks");
                 break;
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        BertieBotts that = (BertieBotts) o;
+        return Objects.equals(getFlavourMix(), that.getFlavourMix());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(super.hashCode(), getFlavourMix());
     }
 }

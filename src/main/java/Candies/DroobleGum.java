@@ -1,5 +1,7 @@
 package Candies;
 
+import java.util.Objects;
+
 /**
  * Класс DroobleGum
  * Описывает продукт типа "Жвачка Друбла"
@@ -28,7 +30,8 @@ public class DroobleGum extends Candy {
      * @param price Значение цены продукта
      * @param flavour Значение вкуса продукта
      */
-    public DroobleGum (int weight, int price, String flavour) {
+    public DroobleGum (String shortName, int weight, int price, String flavour) {
+        this.shortName = shortName;
         this.weight = weight;
         this.price = price;
         this.flavour = flavour;
@@ -81,5 +84,20 @@ public class DroobleGum extends Candy {
         System.out.println(this.getPrice() + " sickles");
         System.out.println("Gum's flavour:");
         System.out.println(this.getFlavour());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        DroobleGum that = (DroobleGum) o;
+        return Objects.equals(getFlavour(), that.getFlavour());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(super.hashCode(), getFlavour());
     }
 }

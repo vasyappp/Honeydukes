@@ -1,5 +1,7 @@
 package Candies;
 
+import java.util.Objects;
+
 /**
  * Класс ChocolateWand
  * Описывает продукт типа "Шоколадная волшебная палочка"
@@ -28,7 +30,8 @@ public class ChocolateWand extends Candy {
      * @param weight Значение веса продукта
      * @param core Значение начинки продукта
      */
-    public ChocolateWand (int weight, String core) {
+    public ChocolateWand (String shortName, int weight, String core) {
+        this.shortName = shortName;
         this.weight = weight;
         this.price = 10;
         this.core = core;
@@ -81,5 +84,20 @@ public class ChocolateWand extends Candy {
         System.out.println(this.getPrice() + " sickles");
         System.out.println("Contains a magical core:");
         System.out.println(this.getCore());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        ChocolateWand wand = (ChocolateWand) o;
+        return Objects.equals(getCore(), wand.getCore());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(super.hashCode(), getCore());
     }
 }

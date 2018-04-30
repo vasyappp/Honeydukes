@@ -1,5 +1,7 @@
 package Candies;
 
+import java.util.Objects;
+
 /**
  * Класс ChocolateFrog
  * Описывает продукт типа "Шоколадная лягушка"
@@ -27,7 +29,8 @@ public class ChocolateFrog extends Candy {
      * @param price Значение цены продукта
      * @param collectionYear Значение информации о карточке волшебника в продукте
      */
-    public ChocolateFrog (int price, String collectionYear) {
+    public ChocolateFrog (String shortName, int price, String collectionYear) {
+        this.shortName = shortName;
         this.weight = 200;
         this.price = price;
         this.collectionYear = collectionYear;
@@ -80,5 +83,20 @@ public class ChocolateFrog extends Candy {
         System.out.println(this.getPrice() + " sickles");
         System.out.println("Contains a card of a wizard from years:");
         System.out.println(this.getCollectionYear());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        ChocolateFrog that = (ChocolateFrog) o;
+        return Objects.equals(getCollectionYear(), that.getCollectionYear());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(super.hashCode(), getCollectionYear());
     }
 }

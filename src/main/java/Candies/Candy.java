@@ -1,5 +1,7 @@
 package Candies;
 
+import java.util.Objects;
+
 /**
  * Абстрактный класс Конфета
  * Содержит вес и цену продукта, а также абстрактный метод вывода информации о продукте
@@ -13,14 +15,16 @@ public abstract class Candy {
      * weight - вес продукта в граммах
      * price - цена продукта в сиклях
      */
-    protected int weight;
-    protected int price;
+    String shortName;
+    int weight;
+    int price;
 
 
     /**
      * Конструктор без заданных параметров
      */
-    public Candy () {
+    Candy () {
+        this.shortName = "";
         this.weight = 0;
         this.price = 0;
     }
@@ -66,4 +70,28 @@ public abstract class Candy {
      * Переопределяется в наследниках
      */
     public abstract void print();
+
+    public String getShortName() {
+        return shortName;
+    }
+
+    public void setShortName(String shortName) {
+        this.shortName = shortName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Candy candy = (Candy) o;
+        return getWeight() == candy.getWeight() &&
+                getPrice() == candy.getPrice() &&
+                Objects.equals(getShortName(), candy.getShortName());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getShortName(), getWeight(), getPrice());
+    }
 }

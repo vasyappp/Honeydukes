@@ -2,6 +2,8 @@ package Shop;
 
 import Candies.*;
 
+import java.util.HashMap;
+
 /**
  * Класс Gift
  * Описывает сформированный подарок
@@ -20,9 +22,9 @@ public class Gift {
      * Общая цена подарка
      * Общий вес подарка
      */
-    private Candy[] product;
-    private int[] amount;
-    private int length;
+    private static String fullName;
+    private static String description;
+    private HashMap<Candy, Integer> product;
     private int totalPrice;
     private int totalWeight;
 
@@ -30,9 +32,7 @@ public class Gift {
      * Конструктор без параметров
      */
     public Gift() {
-        this.product = new Candy[100];
-        this.amount = new int[100];
-        this.length = 0;
+        this.product = new HashMap<>();
         this.totalPrice = 0;
         this.totalWeight = 0;
     }
@@ -44,66 +44,10 @@ public class Gift {
      * @param amount Количество каждого продукта в подарке
      * @param length Количество типов продуктов
      */
-    public Gift(Candy[] product, int[] amount, int length) {
+    public Gift(HashMap<Candy, Integer> product) {
         this.product = product;
-        this.amount = amount;
-        this.length = length;
         this.setTotalPrice();
         this.setTotalWeight();
-    }
-
-    /**
-     * Геттер для списка продуктов в подарке
-     *
-     * @return Список продуктов в подарке
-     */
-    public Candy[] getProduct() {
-        return product;
-    }
-
-    /**
-     * Сеттер для списка продуктов в подарке
-     *
-     * @param product Список продуктов в подарке
-     */
-    public void setProduct(Candy[] product) {
-        this.product = product;
-    }
-
-    /**
-     * Геттер для количества каждого продукта в подарке
-     *
-     * @return Количество каждого продукта в подарке
-     */
-    public int[] getAmount() {
-        return amount;
-    }
-
-    /**
-     * Сеттер для количества каждого продукта в подарке
-     *
-     * @param amount Количество каждого продукта в подарке
-     */
-    public void setAmount(int[] amount) {
-        this.amount = amount;
-    }
-
-    /**
-     * Геттер для количества типов продуктов в подарке
-     *
-     * @return Количество типов продуктов в подарке
-     */
-    public int getLength() {
-        return length;
-    }
-
-    /**
-     * Сеттер для количества типов продуктов в подарке
-     *
-     * @param length Количество типов продуктов в подарке
-     */
-    public void setLength(int length) {
-        this.length = length;
     }
 
     /**

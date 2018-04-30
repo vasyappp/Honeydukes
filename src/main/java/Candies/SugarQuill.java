@@ -1,5 +1,7 @@
 package Candies;
 
+import java.util.Objects;
+
 /**
  * Класс SugarQuill
  * Описывает продукт типа "Сахарное перо"
@@ -26,8 +28,10 @@ public class SugarQuill extends Candy {
      *
      * @param deluxe Делюкс-продукт или нет
      */
-    public SugarQuill (boolean deluxe) {
+    public SugarQuill (String shortName, boolean deluxe) {
+        this.shortName = shortName;
         this.deluxe = deluxe;
+
         if (deluxe) {
             this.weight = 35;
             this.price = 15;
@@ -90,5 +94,20 @@ public class SugarQuill extends Candy {
         } else {
             System.out.println("Simple quill: lasts only for one class (an hour and a half)");
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        SugarQuill quill = (SugarQuill) o;
+        return isDeluxe() == quill.isDeluxe();
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(super.hashCode(), isDeluxe());
     }
 }
