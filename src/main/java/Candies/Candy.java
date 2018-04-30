@@ -71,6 +71,10 @@ public abstract class Candy {
      */
     public abstract void print();
 
+    public static String getFullName() {return "";}
+
+    public static String getDescription() {return "";}
+
     public String getShortName() {
         return shortName;
     }
