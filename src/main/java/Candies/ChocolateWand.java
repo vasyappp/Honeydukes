@@ -21,9 +21,12 @@ public class ChocolateWand extends Candy {
     }
 
     public ChocolateWand (String shortName, int weight, String core) {
-        this.shortName = shortName;
-        this.weight = weight;
-        this.price = 10;
+        super(shortName, weight, 10);
+        this.core = core;
+    }
+
+    public ChocolateWand(String shortName, int weight, int price, String core) {
+        super(shortName, weight, price);
         this.core = core;
     }
 

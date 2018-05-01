@@ -1,9 +1,10 @@
 package WorkWithShop;
 
-import Candies.BertieBotts;
-import Candies.Candy;
+import Candies.*;
 import Shop.Honeydukes;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
@@ -19,6 +20,7 @@ import java.util.Scanner;
 
 public class EditingAShop {
     private Honeydukes honeydukes;
+
 
     public EditingAShop() {
         this.honeydukes = new Honeydukes();
@@ -36,125 +38,156 @@ public class EditingAShop {
         this.honeydukes = honeydukes;
     }
 
-    private void addABertieBotts() {
-        Honeydukes honeydukes = this.getHoneydukes();
+    public void addFromAFile(String filePath) throws FileNotFoundException {
+        Scanner myValue = new Scanner(new File(filePath));
 
-        Scanner myValue = new Scanner(System.in);
+        System.out.println("Parsing a file \"" + filePath + "\"...\n");
 
-        System.out.println("Enter the weight of this product (in grams):");
-        int weight = myValue.nextInt();
+        String product;
+        String fullName;
+        String shortName;
+        String weight;
+        String price;
+        String optional;
 
-        System.out.println("\nEnter the price of this product (in Sickles):");
-        int price = myValue.nextInt();
+        while (myValue.hasNext()) {
 
-        System.out.println();
+            product = myValue.nextLine();
+            Integer i = Integer.parseInt(product);
 
-        String flavourMix = "";
+            if (!myValue.hasNext()) {
+                System.out.println("Oops! Something went wrong with product №" + i);
+                return;
+            } else
+                fullName = myValue.nextLine();
 
-        boolean correctCommand = false;
+            if (!myValue.hasNext()) {
+                System.out.println("Oops! Something went wrong with product №" + i);
+                return;
+            } else
+                shortName = myValue.nextLine();
 
-        while (!correctCommand) {
-            System.out.println("Choose a flavour mix for this product:");
-            System.out.println("1. Every flavour imaginable");
-            System.out.println("2. Only ordinary tastes: orange, chocolate, etc.");
-            System.out.println("3. Extreme flavours for those who likes earwax & dirty socks");
+            if (!myValue.hasNext()) {
+                System.out.println("Oops! Something went wrong with product №" + i);
+                return;
+            } else
+                weight = myValue.nextLine();
 
-            int choice = myValue.nextInt();
+            if (!myValue.hasNext()) {
+                System.out.println("Oops! Something went wrong with product №" + i);
+                return;
+            } else
+                price = myValue.nextLine();
 
-            switch (choice) {
-                case 1:
-                    flavourMix = "Every";
-                    correctCommand = true;
-                    break;
-                case 2:
-                    flavourMix = "Ordinary";
-                    correctCommand = true;
-                    break;
-                case 3:
-                    flavourMix = "Eeew";
-                    correctCommand = true;
-                    break;
-                default:
-                    System.out.println("\nWrong command!\n");
-            }
+            if (!myValue.hasNext()) {
+                System.out.println("Oops! Something went wrong with product №" + i);
+                return;
+            } else
+                optional = myValue.nextLine();
+
+            if (fullName.equals(Description.getBertieBottsFullName())) {
+                if (this.addABertieBott(shortName, weight, price, optional))
+                    System.out.println("Product №" + i + " added successfully");
+                else
+                    System.out.println("Ooops! Product №" + i + " already exists");
+            } else if (fullName.equals(Description.getChocolateFrogFullName())) {
+                if (this.addAChocolateFrog(shortName, weight, price, optional))
+                    System.out.println("Product №" + i + " added successfully");
+                else
+                    System.out.println("Ooops! Product №" + i + " already exists");
+            } else if (fullName.equals(Description.getChocolateWandFullName())) {
+                if (this.addAChocolateWand(shortName, weight, price, optional))
+                    System.out.println("Product №" + i + " added successfully");
+                else
+                    System.out.println("Ooops! Product №" + i + " already exists");
+            } else if (fullName.equals(Description.getDroobleGumFullName())) {
+                if (this.addADroobleGum(shortName, weight, price, optional))
+                    System.out.println("Product №" + i + " added successfully");
+                else
+                    System.out.println("Ooops! Product №" + i + " already exists");
+            } else if (fullName.equals(Description.getSugarQuillFullName())) {
+                if (this.addASugarQuill(shortName, weight, price, optional))
+                    System.out.println("Product №" + i + " added successfully");
+                else
+                    System.out.println("Ooops! Product №" + i + " already exists");
+            } else
+                System.out.println("Ooops! Wrong product №" + i);
         }
-
-        System.out.println("Enter the short name of this product (no spacing allowed)");
-        String shortName = myValue.next();
-
-        BertieBotts bertieBotts = new BertieBotts(shortName, weight, price, flavourMix);
-
-        if (honeydukes.addAProduct(bertieBotts))
-            System.out.println("Product was added successfully");
-        else
-            System.out.println("Product already exists");
-
-        this.setHoneydukes(honeydukes);
     }
 
-    private void addAChocolateFrog() {
+    private boolean addABertieBott(String shortname, String weight, String price, String flavourMix) {
         Honeydukes honeydukes = this.getHoneydukes();
 
-        Scanner myValue = new Scanner(System.in);
+        Integer weightInt = Integer.parseInt(weight);
+        Integer priceInt = Integer.parseInt(price);
 
-        System.out.println("Enter the weight of this product (in grams):");
-        int weight = myValue.nextInt();
+        BertieBotts bertieBotts = new BertieBotts(shortname, weightInt, priceInt, flavourMix);
 
-        System.out.println("\nEnter the price of this product (in Sickles):");
-        int price = myValue.nextInt();
-
-        System.out.println();
-
-        String flavourMix = "";
-
-        boolean correctCommand = false;
-
-        while (!correctCommand) {
-            System.out.println("Choose a flavour mix for this product:");
-            System.out.println("1. Every flavour imaginable");
-            System.out.println("2. Only ordinary tastes: orange, chocolate, etc.");
-            System.out.println("3. Extreme flavours for those who likes earwax & dirty socks");
-
-            int choice = myValue.nextInt();
-
-            switch (choice) {
-                case 1:
-                    flavourMix = "Every";
-                    correctCommand = true;
-                    break;
-                case 2:
-                    flavourMix = "Ordinary";
-                    correctCommand = true;
-                    break;
-                case 3:
-                    flavourMix = "Eeew";
-                    correctCommand = true;
-                    break;
-                default:
-                    System.out.println("\nWrong command!\n");
-            }
-        }
-
-        System.out.println("Enter the short name of this product (no spacing allowed)");
-        String shortName = myValue.next();
-
-        BertieBotts bertieBotts = new BertieBotts(shortName, weight, price, flavourMix);
-
-        if (honeydukes.addAProduct(bertieBotts))
-            System.out.println("Product was added successfully");
-        else
-            System.out.println("Product already exists");
+        boolean success = honeydukes.addAProduct(bertieBotts);
 
         this.setHoneydukes(honeydukes);
+
+        return success;
     }
 
-    public void addAProductMenu() {
-        System.out.println("What type of product do you want to add?");
-        System.out.println("1. Bertie Bott's beans");
-        System.out.println("2. Chocolate Frog");
-        System.out.println("3. Chocolate Wand");
-        System.out.println("4. Drooble's Gum");
-        System.out.println("5. Sugar Quill");
-        System.out.println("6. Go back to previous menu");
+    private boolean addAChocolateFrog(String shortname, String weight, String price, String collectionYear) {
+        Honeydukes honeydukes = this.getHoneydukes();
+
+        Integer weightInt = Integer.parseInt(weight);
+        Integer priceInt = Integer.parseInt(price);
+
+        ChocolateFrog chocolateFrog = new ChocolateFrog(shortname, weightInt, priceInt, collectionYear);
+
+        boolean success = honeydukes.addAProduct(chocolateFrog);
+
+        this.setHoneydukes(honeydukes);
+
+        return success;
+    }
+
+    private boolean addAChocolateWand(String shortname, String weight, String price, String core) {
+        Honeydukes honeydukes = this.getHoneydukes();
+
+        Integer weightInt = Integer.parseInt(weight);
+        Integer priceInt = Integer.parseInt(price);
+
+        ChocolateWand chocolateWand = new ChocolateWand(shortname, weightInt, priceInt, core);
+
+        boolean success = honeydukes.addAProduct(chocolateWand);
+
+        this.setHoneydukes(honeydukes);
+
+        return success;
+    }
+
+    private boolean addADroobleGum(String shortname, String weight, String price, String flavour) {
+        Honeydukes honeydukes = this.getHoneydukes();
+
+        Integer weightInt = Integer.parseInt(weight);
+        Integer priceInt = Integer.parseInt(price);
+
+        DroobleGum droobleGum = new DroobleGum(shortname, weightInt, priceInt, flavour);
+
+        boolean success = honeydukes.addAProduct(droobleGum);
+
+        this.setHoneydukes(honeydukes);
+
+        return success;
+    }
+
+    private boolean addASugarQuill(String shortname, String weight, String price, String deluxe) {
+        Honeydukes honeydukes = this.getHoneydukes();
+
+        Integer weightInt = Integer.parseInt(weight);
+        Integer priceInt = Integer.parseInt(price);
+        boolean deluxeBoolean = deluxe.equals("Deluxe");
+
+        SugarQuill sugarQuill = new SugarQuill(shortname, weightInt, priceInt, deluxeBoolean);
+
+        boolean success = honeydukes.addAProduct(sugarQuill);
+
+        this.setHoneydukes(honeydukes);
+
+        return success;
     }
 }

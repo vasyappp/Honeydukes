@@ -43,8 +43,7 @@ public class UsageOfAShop {
             System.out.println("What do you want to do?");
             System.out.println("1. Check the list of products in Honeydukes");
             System.out.println("2. Buy a gift for the upcoming New Year");
-            //System.out.println("3. Go back to previous menu");
-            System.out.println("3. Exit");
+            System.out.println("3. Go back to previous menu");
 
             int choice = myValue.nextInt();
 
@@ -61,8 +60,7 @@ public class UsageOfAShop {
                     break;
                 case 3:
                     // Выход из программы
-                    //System.out.println("\nGoing back to previous menu...\n");
-                    System.out.println("\nGoodbye!\n");
+                    System.out.println("\nGoing back to previous menu...\n");
                     return;
                 default:
                     // Вывод ошибки некорректной команды

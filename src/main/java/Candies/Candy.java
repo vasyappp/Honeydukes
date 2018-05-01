@@ -20,6 +20,12 @@ public abstract class Candy {
         this.price = 0;
     }
 
+    Candy(String shortName, int weight, int price) {
+        this.shortName = shortName;
+        this.weight = weight;
+        this.price = price;
+    }
+
     public int getWeight() {
         return weight;
     }

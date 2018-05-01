@@ -21,9 +21,7 @@ public class DroobleGum extends Candy {
     }
 
     public DroobleGum (String shortName, int weight, int price, String flavour) {
-        this.shortName = shortName;
-        this.weight = weight;
-        this.price = price;
+        super(shortName, weight, price);
         this.flavour = flavour;
     }
 

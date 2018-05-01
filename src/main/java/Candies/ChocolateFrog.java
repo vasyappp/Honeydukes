@@ -21,9 +21,12 @@ public class ChocolateFrog extends Candy {
     }
 
     public ChocolateFrog (String shortName, int price, String collectionYear) {
-        this.shortName = shortName;
-        this.weight = 200;
-        this.price = price;
+        super(shortName, 200, price);
+        this.collectionYear = collectionYear;
+    }
+
+    public ChocolateFrog(String shortName, int weight, int price, String collectionYear) {
+        super(shortName, weight, price);
         this.collectionYear = collectionYear;
     }
 

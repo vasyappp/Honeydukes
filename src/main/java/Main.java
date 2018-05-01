@@ -1,7 +1,9 @@
 import Candies.*;
 import Shop.*;
+import WorkWithShop.EditingAShop;
 import WorkWithShop.UsageOfAShop;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -175,7 +177,7 @@ public class Main {
      *
      * @param args args
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         Scanner myValue = new Scanner(System.in);
 
         // Генерация списка доступных товаров и готовых подарков
@@ -183,24 +185,22 @@ public class Main {
 
         System.out.println("Welcome to Honeydukes!\n");
 
-        UsageOfAShop usage = new UsageOfAShop(honeydukes);
-        usage.mainMenu();
-
-        /*while (true) {
+        while (true) {
             System.out.println("What do you want to do?");
-            System.out.println("1. Edit a shop");
-            System.out.println("2. Work with a shop");
+            System.out.println("1. Work with a shop");
+            System.out.println("2. Go to Forbidden Forest");
             System.out.println("3. Exit");
 
             int choice = myValue.nextInt();
 
             switch (choice) {
-                case 1:
-                    System.out.println("We're currently working on this function.");
+                case 2:
+                    System.out.println("\nWe're currently working on this function.");
                     System.out.println("Come back later\n");
                     break;
-                case 2:
+                case 1:
                     UsageOfAShop usage = new UsageOfAShop(honeydukes);
+                    System.out.println("\nEntering a shop...\n");
                     usage.mainMenu();
                     break;
                 case 3:
@@ -210,6 +210,5 @@ public class Main {
                     System.out.println("\nWrong command\n");
             }
         }
-        */
     }
 }

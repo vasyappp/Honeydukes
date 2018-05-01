@@ -33,20 +33,17 @@ public class SugarQuill extends Candy {
         }
     }
 
+    public SugarQuill(String shortName, int weight, int price, boolean deluxe) {
+        super(shortName, weight, price);
+        this.deluxe = deluxe;
+    }
+
     public boolean isDeluxe() {
         return deluxe;
     }
 
     public void setDeluxe(boolean deluxe) {
         this.deluxe = deluxe;
-
-        if (deluxe) {
-            this.setWeight(35);
-            this.setPrice(15);
-        } else {
-            this.setWeight(30);
-            this.setPrice(10);
-        }
     }
 
     @Override
@@ -69,9 +66,9 @@ public class SugarQuill extends Candy {
 
         // Вывод информации в зависимости от того, является ли продукт Делюкс-изданием
         if (this.isDeluxe()) {
-            System.out.println("Deluxe quill: you can suck it for one day");
+            System.out.println("Deluxe quill: you can suck it longer");
         } else {
-            System.out.println("Simple quill: lasts only for one class (an hour and a half)");
+            System.out.println("Simple quill: lasts not for so long");
         }
 
         System.out.println();

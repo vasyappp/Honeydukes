@@ -21,9 +21,7 @@ public class BertieBotts extends Candy {
 
 
     public BertieBotts (String shortName, int weight, int price, String flavourMix) {
-        this.shortName = shortName;
-        this.weight = weight;
-        this.price = price;
+        super(shortName,weight,price);
         this.flavourMix = flavourMix;
     }
 
@@ -66,6 +64,8 @@ public class BertieBotts extends Candy {
             case "Eeew":
                 System.out.println("Extreme flavours for those who likes earwax & dirty socks");
                 break;
+            default:
+                System.out.println(this.getFlavourMix());
         }
 
         System.out.println();
