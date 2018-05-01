@@ -157,4 +157,26 @@ public class Honeydukes {
             System.out.println(price / 17 + " Galleons " + price % 17 + " Sickles (" + price + " Sickles)\n\n");
         }
     }
+
+    public Candy findProduct(String fullName, String shortName) {
+        HashMap<String, ArrayList<Candy>> products = this.getProducts();
+
+        Candy candy = null;
+
+        if (products.containsKey(fullName)) {
+            ArrayList<Candy> candies = products.get(fullName);
+
+            Iterator<Candy> iterator = candies.iterator();
+
+            while (iterator.hasNext()) {
+                candy = iterator.next();
+
+                if (candy.getShortName().equals(shortName)) {
+                    return candy;
+                }
+            }
+        }
+
+        return candy;
+    }
 }
