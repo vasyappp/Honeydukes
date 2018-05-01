@@ -123,39 +123,45 @@ public class Honeydukes {
     public void printHoneydukes() {
         HashMap<String, ArrayList<Candy>> products = this.getProducts();
 
-        int i = 1;
+        if (!products.isEmpty()) {
+            int i = 1;
 
-        for (Map.Entry<String, ArrayList<Candy>> entry : products.entrySet()) {
-            System.out.println("Product №" + i + "\n");
+            for (Map.Entry<String, ArrayList<Candy>> entry : products.entrySet()) {
+                System.out.println("Product №" + i + "\n");
 
-            this.printOneList(entry.getKey());
+                this.printOneList(entry.getKey());
 
-            System.out.println();
+                System.out.println();
 
-            i++;
-        }
+                i++;
+            }
+        } else
+            System.out.println("Ooops! No products in Honeydukes");
     }
 
     public void printGiftsList() {
         ArrayList<Gift> gifts = this.getGifts();
 
-        int i = 0;
+        if (!gifts.isEmpty()) {
+            int i = 0;
 
-        for (Gift gift : gifts) {
-            i++;
+            for (Gift gift : gifts) {
+                i++;
 
-            System.out.println("Gift №" + i + "\n");
-            System.out.println("\"" + gift.getFullName() + "\"");
-            System.out.println(gift.getDescription());
+                System.out.println("Gift №" + i + "\n");
+                System.out.println("\"" + gift.getFullName() + "\"");
+                System.out.println(gift.getDescription());
 
-            System.out.println("\nTotal weight of this gift (1 kg = 1000 g):");
-            int weight = gift.getTotalWeight();
-            System.out.println(weight / 1000 + " kg " + weight % 1000 + " g (" + weight + " g)");
+                System.out.println("\nTotal weight of this gift (1 kg = 1000 g):");
+                int weight = gift.getTotalWeight();
+                System.out.println(weight / 1000 + " kg " + weight % 1000 + " g (" + weight + " g)");
 
-            System.out.println("\nTotal price of this gift (1 Galleon = 17 Sickles):");
-            int price = gift.getTotalPrice();
-            System.out.println(price / 17 + " Galleons " + price % 17 + " Sickles (" + price + " Sickles)\n\n");
-        }
+                System.out.println("\nTotal price of this gift (1 Galleon = 17 Sickles):");
+                int price = gift.getTotalPrice();
+                System.out.println(price / 17 + " Galleons " + price % 17 + " Sickles (" + price + " Sickles)\n\n");
+            }
+        } else
+            System.out.println("Ooops! No gifts in Honeydukes");
     }
 
     public Candy findProduct(String fullName, String shortName) {
