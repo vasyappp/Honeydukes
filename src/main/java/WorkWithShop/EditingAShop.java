@@ -3,9 +3,19 @@ package WorkWithShop;
 import Candies.BertieBotts;
 import Candies.Candy;
 import Shop.Honeydukes;
-import com.sun.jndi.ldap.Ber;
 
 import java.util.Scanner;
+
+/**
+ * Класс EditingAShop
+ * Описывает работу администратора с магазином
+ * Позволяет добавлять новые типы продуктов, составлять и добавлять готовые подарки
+ *
+ * @see Candies
+ * @see Shop
+ *
+ * @author Natalia Litvinova
+ */
 
 public class EditingAShop {
     private Honeydukes honeydukes;

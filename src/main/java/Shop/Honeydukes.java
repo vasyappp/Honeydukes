@@ -15,13 +15,9 @@ import java.util.*;
  */
 
 public class Honeydukes {
-    /**
-     * Атрибуты класса:
-     * Список имеющихся продуктов
-     * Список готовых подарков
-     */
     private HashMap<String, ArrayList<Candy>> products;
     private ArrayList<Gift> gifts;
+
 
     public Honeydukes() {
         this.products = new HashMap<>();
@@ -109,21 +105,19 @@ public class Honeydukes {
                 System.out.println("\nTypes of product:\n");
 
                 int i = 1;
-                System.out.println("Pack №" + i);
+                System.out.println("Type №" + i);
                 candy.print();
-                System.out.println();
 
                 while (iterator.hasNext()) {
                     candy = iterator.next();
                     i++;
-                    System.out.println("Pack №" + i);
+                    System.out.println("Type №" + i);
                     candy.print();
-                    System.out.println();
                 }
             } else
-                System.out.println("\nOoops! Zero products named " + fullName + " found\n");
+                System.out.println("Ooops! Zero products named " + fullName + " found\n");
         } else
-            System.out.println("\nOoops! Zero products named " + fullName + " found\n");
+            System.out.println("Ooops! Zero products named " + fullName + " found\n");
     }
 
     public void printHoneydukes() {

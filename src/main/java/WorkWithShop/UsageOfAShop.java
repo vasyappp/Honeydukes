@@ -7,6 +7,18 @@ import Shop.Honeydukes;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Класс UsageOfAShop
+ * Описывает работу пользователя-покупателя с магазином
+ * (Не позволяет редактировать ассортимент магазина, только просматривать список продуктов,
+ * а также составлять и покупать подарки)
+ *
+ * @see Candies
+ * @see Shop
+ *
+ * @author Natalia Litvinova
+ */
+
 public class UsageOfAShop {
     private Honeydukes honeydukes;
 
@@ -31,26 +43,30 @@ public class UsageOfAShop {
             System.out.println("What do you want to do?");
             System.out.println("1. Check the list of products in Honeydukes");
             System.out.println("2. Buy a gift for the upcoming New Year");
-            System.out.println("3. Go back to previous menu");
+            //System.out.println("3. Go back to previous menu");
+            System.out.println("3. Exit");
 
             int choice = myValue.nextInt();
 
             switch (choice) {
                 case 1:
                     // Просмотр всех доступных продуктов
+                    System.out.println("\nGoing to check products...\n");
                     this.checkProducts();
                     break;
                 case 2:
                     // Покупка подарка
+                    System.out.println("\nGoing to buy a gift...\n");
                     this.getAGift();
                     break;
                 case 3:
                     // Выход из программы
-                    System.out.println("Going back to previous menu...");
+                    //System.out.println("\nGoing back to previous menu...\n");
+                    System.out.println("\nGoodbye!\n");
                     return;
                 default:
                     // Вывод ошибки некорректной команды
-                    System.out.println("Wrong command!\n");
+                    System.out.println("\nWrong command!\n");
                     break;
             }
         }
@@ -131,11 +147,13 @@ public class UsageOfAShop {
             switch (choice) {
                 case 1:
                     // Вызов метода выбора готового подарка
+                    System.out.println("\nGoing to buy a prepared gift...\n");
                     this.getAPreparedGift();
                     break;
                 case 2:
                     // Вызов метода создания подарка
-                    createAGift();
+                    System.out.println("\nGoing to create a gift...\n");
+                    this.createAGift();
                     break;
                 case 3:
                     // Возврат к прошлому меню
@@ -163,15 +181,17 @@ public class UsageOfAShop {
 
             switch (choice) {
                 case 1:
+                    System.out.println("\nChecking the list of prepared gifts...\n");
                     honeydukes.printGiftsList();
                     break;
                 case 2:
-                    System.out.println("Enter the number of a gift:");
+                    System.out.println("\nEnter the number of a gift:");
                     int number = myValue.nextInt();
                     if ((number <= honeydukes.getGifts().size()) && (number > 0)) {
+                        System.out.println();
                         honeydukes.getGifts().get(number - 1).print();
                     } else
-                        System.out.println("Wrong number of a gift");
+                        System.out.println("\nWrong number of a gift\n");
                     break;
                 case 3:
                     System.out.println("\nGoing back to previous menu...\n");
@@ -211,16 +231,19 @@ public class UsageOfAShop {
             if ((choice > 0) && (choice <= deeperCommands)) {
                 String key = this.findAKey(choice - 1);
 
+                System.out.println("\nGoing to add a product \"" + key + "\"\n");
+
                 gift = this.addAProduct(gift, key);
             } else if (choice == deeperCommands + 1) {
+                System.out.println("\nChecking your current gift\n");
                 gift.print();
             } else if (choice== deeperCommands + 2) {
-                System.out.println("Going back...");
+                System.out.println("\nGoing back...\n");
                 return;
             } else
-                System.out.println("Wrong command");
+                System.out.println("\bWrong command\n");
 
-            System.out.println("Choose another type of product");
+            System.out.println("Choose another type of product\n");
         }
     }
 
@@ -263,20 +286,22 @@ public class UsageOfAShop {
             int choice = myValue.nextInt();
 
             if (choice == maxProduct + 1) {
+                System.out.println("\nChecking the list of product \"" + key + "\"\n");
                 honeydukes.printOneList(key);
             } else
             if ((choice > 0) && (choice <= maxProduct)) {
-                System.out.println("Enter the amount of the product:");
+                System.out.println("\nEnter the amount of the product:");
                 int amount = myValue.nextInt();
 
                 gift.addAPack(productList.get(i - 1), amount);
+                System.out.println("\nProduct added successfully!\n");
             } else if (choice == maxProduct + 2) {
-                System.out.println("Going back...");
+                System.out.println("\nGoing back...\n");
                 return gift;
             } else
-                System.out.println("Wrong command");
+                System.out.println("\nWrong command\n");
 
-            System.out.println("Continue adding \n");
+            System.out.println("Continue adding\n");
         }
     }
 }

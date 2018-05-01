@@ -1,6 +1,5 @@
 import Candies.*;
 import Shop.*;
-import Print.*;
 import WorkWithShop.UsageOfAShop;
 
 import java.util.ArrayList;
@@ -184,7 +183,10 @@ public class Main {
 
         System.out.println("Welcome to Honeydukes!\n");
 
-        while (true) {
+        UsageOfAShop usage = new UsageOfAShop(honeydukes);
+        usage.mainMenu();
+
+        /*while (true) {
             System.out.println("What do you want to do?");
             System.out.println("1. Edit a shop");
             System.out.println("2. Work with a shop");
@@ -208,5 +210,6 @@ public class Main {
                     System.out.println("\nWrong command\n");
             }
         }
+        */
     }
 }

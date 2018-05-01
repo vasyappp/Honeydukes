@@ -1,5 +1,12 @@
 package Candies;
 
+/**
+ * Класс Description
+ * Хранит полные названия имеющихся в магазине типов продуктов и их описания
+ *
+ * @author Natalia Litvinova
+ */
+
 public class Description {
     private static String
             bertieBottsFullName = "Bertie Bott's Every Flavour Beans";

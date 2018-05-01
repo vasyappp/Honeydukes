@@ -20,13 +20,6 @@ public class DroobleGum extends Candy {
         this.flavour = "";
     }
 
-    /**
-     * Конструктор с заданными параметрами
-     *
-     * @param weight Значение веса продукта
-     * @param price Значение цены продукта
-     * @param flavour Значение вкуса продукта
-     */
     public DroobleGum (String shortName, int weight, int price, String flavour) {
         this.shortName = shortName;
         this.weight = weight;
@@ -34,20 +27,10 @@ public class DroobleGum extends Candy {
         this.flavour = flavour;
     }
 
-    /**
-     * Геттер для вкуса продукта
-     *
-     * @return Значение вкуса продукта
-     */
     public String getFlavour() {
         return flavour;
     }
 
-    /**
-     * Сеттер для вкуса продукта
-     *
-     * @param flavour Значение вкуса продукта
-     */
     public void setFlavour(String flavour) {
         this.flavour = flavour;
     }
@@ -62,9 +45,6 @@ public class DroobleGum extends Candy {
         return Description.getDroobleGumDescription();
     }
 
-    /**
-     * Метод для вывода информации о продукте
-     */
     @Override
     public void print() {
         System.out.println("Weight of the gum:");
@@ -73,6 +53,8 @@ public class DroobleGum extends Candy {
         System.out.println(this.getPrice() + " sickles");
         System.out.println("Gum's flavour:");
         System.out.println(this.getFlavour());
+
+        System.out.println();
     }
 
     @Override

@@ -20,12 +20,6 @@ public class ChocolateWand extends Candy {
         this.core = "";
     }
 
-    /**
-     * Конструктор с заданными параметрами
-     *
-     * @param weight Значение веса продукта
-     * @param core Значение начинки продукта
-     */
     public ChocolateWand (String shortName, int weight, String core) {
         this.shortName = shortName;
         this.weight = weight;
@@ -33,20 +27,10 @@ public class ChocolateWand extends Candy {
         this.core = core;
     }
 
-    /**
-     * Геттер для начинки продукта
-     *
-     * @return Значение начинки продукта
-     */
     public String getCore() {
         return core;
     }
 
-    /**
-     * Сеттер для начинки продукта
-     *
-     * @param core Значение начинки продукта
-     */
     public void setCore(String core) {
         this.core = core;
     }
@@ -61,9 +45,6 @@ public class ChocolateWand extends Candy {
         return Description.getChocolateWandDescription();
     }
 
-    /**
-     * Метод вывода информации о продукте
-     */
     @Override
     public void print() {
         System.out.println("Weight of the wand:");
@@ -72,6 +53,8 @@ public class ChocolateWand extends Candy {
         System.out.println(this.getPrice() + " sickles");
         System.out.println("Contains a magical core:");
         System.out.println(this.getCore());
+
+        System.out.println();
     }
 
     @Override

@@ -19,11 +19,7 @@ public class SugarQuill extends Candy {
         super();
         this.deluxe = false;
     }
-    /**
-     * Конструктор с заданными параметрами
-     *
-     * @param deluxe Делюкс-продукт или нет
-     */
+
     public SugarQuill (String shortName, boolean deluxe) {
         this.shortName = shortName;
         this.deluxe = deluxe;
@@ -37,20 +33,10 @@ public class SugarQuill extends Candy {
         }
     }
 
-    /**
-     * Геттер для информации о том, является ли продукт Делюкс-изданием
-     *
-     * @return Делюкс-продукт или нет
-     */
     public boolean isDeluxe() {
         return deluxe;
     }
 
-    /**
-     * Сеттер для информации о том, является ли продукт Делюкс-изданием
-     *
-     * @param deluxe Делюкс-продукт или нет
-     */
     public void setDeluxe(boolean deluxe) {
         this.deluxe = deluxe;
 
@@ -73,9 +59,6 @@ public class SugarQuill extends Candy {
         return Description.getSugarQuillDescription();
     }
 
-    /**
-     * Метод вывода информации о продукте
-     */
     @Override
     public void print() {
         // Вывод информации о весе и цене продукта
@@ -90,6 +73,8 @@ public class SugarQuill extends Candy {
         } else {
             System.out.println("Simple quill: lasts only for one class (an hour and a half)");
         }
+
+        System.out.println();
     }
 
     @Override

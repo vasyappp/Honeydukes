@@ -23,12 +23,9 @@ public class Gift {
     private int totalWeight;
 
 
-    /**
-     * Конструктор без параметров
-     */
     public Gift() {
-        this.fullName = "";
-        this.description = "";
+        this.fullName = "Created gift";
+        this.description = "A gift that contains products picked by user";
         this.gift = new HashMap<>();
         this.totalPrice = 0;
         this.totalWeight = 0;
@@ -66,11 +63,6 @@ public class Gift {
         this.gift = gift;
     }
 
-    /**
-     * Геттер для общей стоимости подарка
-     *
-     * @return Значение общей стоимости подарка
-     */
     public int getTotalPrice() {
         return totalPrice;
     }
@@ -94,11 +86,6 @@ public class Gift {
         this.totalPrice = count;
     }
 
-    /**
-     * Геттер для общего веса подарка
-     *
-     * @return Значение общего веса подарка
-     */
     public int getTotalWeight() {
         return totalWeight;
     }
@@ -140,6 +127,9 @@ public class Gift {
 
     public void print() {
         HashMap<Candy, Integer> gift = this.getGift();
+
+        System.out.println("\"" + this.getFullName() + "\" gift");
+        System.out.println(this.getDescription());
 
         System.out.println("\nWhat's in this gift:\n\n");
 

@@ -20,12 +20,6 @@ public class ChocolateFrog extends Candy {
         this.collectionYear = "";
     }
 
-    /**
-     * Конструктор с заданными параметрами
-     *
-     * @param price Значение цены продукта
-     * @param collectionYear Значение информации о карточке волшебника в продукте
-     */
     public ChocolateFrog (String shortName, int price, String collectionYear) {
         this.shortName = shortName;
         this.weight = 200;
@@ -33,20 +27,10 @@ public class ChocolateFrog extends Candy {
         this.collectionYear = collectionYear;
     }
 
-    /**
-     * Геттер для информации о карточке в продукте
-     *
-     * @return Значение информации о карточке в продукте
-     */
     public String getCollectionYear() {
         return collectionYear;
     }
 
-    /**
-     * Сеттер для информации о карточке в продукте
-     *
-     * @param collectionYear Значение информации о карточке в продукте
-     */
     public void setCollectionYear(String collectionYear) {
         this.collectionYear = collectionYear;
     }
@@ -61,9 +45,6 @@ public class ChocolateFrog extends Candy {
         return Description.getChocolateFrogDescription();
     }
 
-    /**
-     * Метод вывода информации о продукте
-     */
     @Override
     public void print() {
         System.out.println("Weight of the frog:");
@@ -72,6 +53,8 @@ public class ChocolateFrog extends Candy {
         System.out.println(this.getPrice() + " sickles");
         System.out.println("Contains a card of a wizard from years:");
         System.out.println(this.getCollectionYear());
+
+        System.out.println();
     }
 
     @Override
