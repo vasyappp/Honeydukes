@@ -31,46 +31,20 @@ public class Reset {
             Scanner myValue = new Scanner(System.in);
 
             System.out.println("What do you want to reset?");
-            System.out.println("1. Products");
-            System.out.println("2. Gifts");
-            System.out.println("3. EVERYTHING!!!");
-            System.out.println("4. I've changed my mind, go back");
+            System.out.println("1. EVERYTHING!!!11");
+            System.out.println("2. Only gifts");
+            System.out.println("3. I've changed my mind, go back");
 
             int choice = myValue.nextInt();
 
             switch (choice) {
                 case 1:
-                    this.resetProducts();
+                    this.resetHoneydukes();
                     break;
                 case 2:
                     this.resetGifts();
                     break;
                 case 3:
-                    this.resetHoneydukes();
-                    break;
-                case 4:
-                    return;
-                default:
-                    System.out.println("\nWrong command\n");
-            }
-        }
-    }
-
-    private void resetProducts() {
-        while (true) {
-            Scanner myValue = new Scanner(System.in);
-
-            System.out.println("Are you sure you want to reset all products from Honeydukes? (y - yes, n - no)");
-
-            String choice = myValue.nextLine();
-
-            switch (choice) {
-                case "y":
-                    Honeydukes honeydukes = this.getHoneydukes();
-                    honeydukes.setProducts(new HashMap<>());
-                    this.setHoneydukes(honeydukes);
-                    return;
-                case "n":
                     return;
                 default:
                     System.out.println("\nWrong command\n");
