@@ -1,6 +1,7 @@
 package WorkWithShop.Editing;
 
 import Candies.*;
+import Shop.Gift;
 import Shop.Honeydukes;
 
 import java.util.ArrayList;
@@ -42,6 +43,7 @@ public class Changing {
                     this.changeProducts();
                     break;
                 case 2:
+                    this.changeGifts();
                     break;
                 case 3:
                     System.out.println("\nGoing back...\n");
@@ -217,6 +219,93 @@ public class Changing {
                     }
                     break;
                 case 6:
+                    System.out.println("\nGoing back...\n");
+                    return;
+                default:
+                    System.out.println("\nWrong command\n");
+            }
+        }
+    }
+
+    private void changeGifts() {
+        Honeydukes honeydukes = this.getHoneydukes();
+        ArrayList<Gift> gifts = honeydukes.getGifts();
+
+        if (!gifts.isEmpty()) {
+            while (true) {
+                System.out.println("What do you want to do?");
+
+                int i = 0;
+
+                for (Gift gift : gifts) {
+                    i++;
+
+                    System.out.println(i + ". Change the gift №" + i + ": " + gift.getFullName());
+                }
+
+                int maxGift = i;
+
+                System.out.println((maxGift + 1) + ". Check the list of the gifts");
+                System.out.println((maxGift + 2) + ". Go back");
+
+                Scanner myValue = new Scanner(System.in);
+
+                int choice = myValue.nextInt();
+
+                if ((choice > 0) && (choice <= maxGift)) {
+                    Gift gift = gifts.get(choice - 1);
+                    this.changeCertainGift(gift);
+                } else if (choice == maxGift + 1) {
+                    honeydukes.printGiftsList();
+                } else if (choice == maxGift + 2) {
+                    System.out.println("\nGoing back...\n");
+                    return;
+                } else
+                    System.out.println("\nWrong command\n");
+            }
+        }
+    }
+
+    private void changeCertainGift(Gift gift) {
+        while (true) {
+            System.out.println("What do you want to do?");
+            System.out.println("1. Change the name of the gift");
+            System.out.println("2. Change the description of the gift");
+            System.out.println("3. Set new total price");
+            System.out.println("4. Add a product");
+            System.out.println("5. Change the amount of a product");
+            System.out.println("6. Delete a product from a gift");
+            System.out.println("7. Go back");
+
+            Scanner myValue = new Scanner(System.in);
+
+            int choice = myValue.nextInt();
+            String change = myValue.nextLine();
+
+            switch (choice) {
+                case 1:
+                    System.out.println("\nEnter new name:");
+                    change = myValue.nextLine();
+                    gift.setFullName(change);
+                    break;
+                case 2:
+                    System.out.println("\nEnter new description:");
+                    change = myValue.nextLine();
+                    gift.setDescription(change);
+                    break;
+                case 3:
+                    System.out.println("\nEnter new price:");
+                    change = myValue.nextLine();
+                    Integer changeInt = Integer.parseInt(change);
+                    gift.setTotalPrice(changeInt);
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                case 7:
                     System.out.println("\nGoing back...\n");
                     return;
                 default:
