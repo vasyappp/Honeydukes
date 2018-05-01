@@ -229,6 +229,9 @@ public class EditingAShop {
                     this.setHoneydukes(adding.getHoneydukes());
                     break;
                 case 3:
+                    Changing changing = new Changing(this.getHoneydukes());
+                    changing.changeSomething();
+                    this.setHoneydukes(changing.getHoneydukes());
                     break;
                 case 4:
                     break;
