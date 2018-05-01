@@ -1,11 +1,7 @@
-import Candies.*;
-import Shop.*;
-import WorkWithShop.EditingAShop;
+import WorkWithShop.Editing.EditingAShop;
 import WorkWithShop.UsageOfAShop;
 
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
 
 /**
